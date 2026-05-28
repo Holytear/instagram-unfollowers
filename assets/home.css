@@ -58,12 +58,18 @@
 .page-home .btn-primary {
   background: var(--ink);
   border-color: var(--ink);
-  color: #fbf8f2;
+  color: var(--on-ink);
 }
 
 .page-home .btn-primary:hover {
-  background: #000;
-  border-color: #000;
+  opacity: 0.9;
+}
+
+.page-home .btn-primary.is-copied {
+  background: #1d7a45;
+  border-color: #1d7a45;
+  color: #fff;
+  opacity: 1;
 }
 
 .page-home .status {
@@ -188,6 +194,58 @@
   border-radius: 0 6px 6px 0;
   color: #5b3a10;
   font-size: var(--type-body-sm);
+  line-height: var(--leading-prose);
+}
+
+:root[data-theme="dark"] .page-home .note {
+  background: rgba(207, 132, 30, 0.14);
+  color: #e8ca9b;
+}
+
+/* FAQ accordion */
+.page-home .faq {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.page-home .faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.page-home .faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  font-size: var(--type-h3);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.page-home .faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.page-home .faq summary .chev {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.page-home .faq details[open] summary .chev {
+  transform: rotate(180deg);
+}
+
+.page-home .faq details p {
+  margin: 0;
+  padding: 0 0 18px;
+  color: var(--muted);
+  font-size: var(--type-body);
   line-height: var(--leading-prose);
 }
 

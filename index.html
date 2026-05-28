@@ -8,6 +8,20 @@
       content="Instagram'da sizi geri takip etmeyenleri bulan, sade arayüzlü ve optimize edilmiş console aracı."
     />
     <meta name="theme-color" content="#f7f4ef" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("holytear_iu_theme");
+          if (!t)
+            t =
+              window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
     <title>Holytear Instagram Unfollowers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,6 +58,10 @@
               <path fill="currentColor" d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.03-3.24-1.97-3.24-1.97 0-2.27 1.54-2.27 3.12V19h-3v-9h2.89v1.23h.04a3.17 3.17 0 012.85-1.56c3.05 0 3.61 2 3.61 4.61V19z" />
             </svg>
           </a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" title="Theme">
+            <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+            <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+          </button>
           <button class="lang" type="button" data-language-toggle aria-label="Switch to English" title="Türkçe">TR</button>
         </nav>
       </div>
@@ -123,6 +141,54 @@
           <p class="note" data-i18n="note">
             Instagram rate-limit uygulayabilir. Takip bırakma hızını gereksiz yere arttırmayın.
           </p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="block" id="faq">
+        <div class="wrap">
+          <h2 data-i18n="faqTitle">Sıkça sorulanlar</h2>
+          <p class="block-lead" data-i18n="faqLead">
+            Aracı kullanmadan önce en çok merak edilenler.
+          </p>
+          <div class="faq">
+            <details>
+              <summary>
+                <span data-i18n="faqQ1">Hesabım banlanır mı?</span>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </summary>
+              <p data-i18n="faqA1">
+                Araç Instagram'ın kendi arayüzünü kullanır ve hız sınırlarına uyman için yavaş, kontrollü takip bırakma sunar. Yine de toplu ve hızlı işlemler geçici kısıtlamaya yol açabilir; acele etme.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span data-i18n="faqQ2">Şifremi giriyor muyum?</span>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </summary>
+              <p data-i18n="faqA2">
+                Hayır. Kod yalnızca zaten giriş yaptığın tarayıcı oturumunu kullanır. Şifreni hiçbir yere girmezsin ve senden istenmez.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span data-i18n="faqQ3">Verilerim bir sunucuya gönderiliyor mu?</span>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </summary>
+              <p data-i18n="faqA3">
+                Hayır. Tüm işlem kendi tarayıcında çalışır; Instagram verilerin bu projeye ait bir sunucuya gönderilmez.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span data-i18n="faqQ4">Neden eklenti değil de konsol kodu?</span>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </summary>
+              <p data-i18n="faqA4">
+                Konsol yöntemi kurulum gerektirmez, açık kaynaktır ve ne çalıştığını satır satır görebilirsin. Eklentilerin aksine arka planda sürekli çalışmaz.
+              </p>
+            </details>
+          </div>
         </div>
       </section>
 
@@ -254,7 +320,18 @@
           loadFailed: "Kod önizlemesi yüklenemedi. Kod dosyasını aç butonunu kullanın.",
           loadError: "Kod dosyası yüklenemedi.",
           copied: "Kod kopyalandı. Instagram konsoluna yapıştırabilirsiniz.",
-          copyFailed: "Kopyalama başarısız oldu. Kod dosyasını açıp elle kopyalayın."
+          copyFailed: "Kopyalama başarısız oldu. Kod dosyasını açıp elle kopyalayın.",
+          copyDone: "Kopyalandı",
+          faqTitle: "Sıkça sorulanlar",
+          faqLead: "Aracı kullanmadan önce en çok merak edilenler.",
+          faqQ1: "Hesabım banlanır mı?",
+          faqA1: "Araç Instagram'ın kendi arayüzünü kullanır ve hız sınırlarına uyman için yavaş, kontrollü takip bırakma sunar. Yine de toplu ve hızlı işlemler geçici kısıtlamaya yol açabilir; acele etme.",
+          faqQ2: "Şifremi giriyor muyum?",
+          faqA2: "Hayır. Kod yalnızca zaten giriş yaptığın tarayıcı oturumunu kullanır. Şifreni hiçbir yere girmezsin ve senden istenmez.",
+          faqQ3: "Verilerim bir sunucuya gönderiliyor mu?",
+          faqA3: "Hayır. Tüm işlem kendi tarayıcında çalışır; Instagram verilerin bu projeye ait bir sunucuya gönderilmez.",
+          faqQ4: "Neden eklenti değil de konsol kodu?",
+          faqA4: "Konsol yöntemi kurulum gerektirmez, açık kaynaktır ve ne çalıştığını satır satır görebilirsin. Eklentilerin aksine arka planda sürekli çalışmaz."
         },
         en: {
           metaDescription: "A clean and optimized console tool for finding Instagram accounts that do not follow you back.",
@@ -301,7 +378,18 @@
           loadFailed: "Code preview could not be loaded. Use the open code file button instead.",
           loadError: "Code file could not be loaded.",
           copied: "Code copied. Paste it into the Instagram console.",
-          copyFailed: "Copy failed. Open the code file and copy it manually."
+          copyFailed: "Copy failed. Open the code file and copy it manually.",
+          copyDone: "Copied",
+          faqTitle: "Frequently asked",
+          faqLead: "The most common questions before you use the tool.",
+          faqQ1: "Will my account get banned?",
+          faqA1: "The tool uses Instagram's own interface and offers slow, controlled unfollowing to respect rate limits. Still, bulk and fast actions can trigger temporary restrictions — take it slow.",
+          faqQ2: "Do I enter my password?",
+          faqA2: "No. The code only uses your already signed-in browser session. You never enter your password and it is never requested.",
+          faqQ3: "Is my data sent to a server?",
+          faqA3: "No. Everything runs in your own browser; your Instagram data is not sent to any server owned by this project.",
+          faqQ4: "Why a console snippet, not an extension?",
+          faqA4: "The console method needs no install, is open source, and lets you read exactly what runs. Unlike extensions, it does not keep running in the background."
         }
       };
 
@@ -373,13 +461,24 @@
         }
       }
 
+      const copyLabel = copyButton.querySelector("[data-i18n='copyCode']");
+      let copyTimer;
       copyButton.addEventListener("click", async () => {
+        const dict = translations[currentLanguage];
         try {
           if (!snippet) await loadSnippet();
           await navigator.clipboard.writeText(snippet);
-          status.textContent = translations[currentLanguage].copied;
+          status.textContent = dict.copied;
+          copyButton.classList.add("is-copied");
+          if (copyLabel) copyLabel.textContent = dict.copyDone;
+          clearTimeout(copyTimer);
+          copyTimer = setTimeout(() => {
+            copyButton.classList.remove("is-copied");
+            if (copyLabel)
+              copyLabel.textContent = translations[currentLanguage].copyCode;
+          }, 1800);
         } catch {
-          status.textContent = translations[currentLanguage].copyFailed;
+          status.textContent = dict.copyFailed;
         }
       });
 
@@ -391,5 +490,6 @@
       loadSnippet();
       loadVirusTotalSummary();
     </script>
+    <script src="assets/theme.js"></script>
   </body>
 </html>
